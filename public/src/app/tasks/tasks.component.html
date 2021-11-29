@@ -8,6 +8,9 @@
                 <div>
                     <h3>{{task.title}}</h3>
                     <p>{{task.description}}</p>
+                    <div *ngIf="task.completed">
+                        <h4>Done</h4>
+                    </div>
                 </div>
                 <form (submit)="findTask($event)">
                     <input type="hidden" value="{{task.title}}" id="title">
@@ -21,26 +24,21 @@
     
 
     <div *ngIf="task.title" class="edit">
-        <h1>Edit Task {{title2}}</h1>
+        <h1>Edit {{task.title}}</h1>
         <div class="show">
             <form class="editinfo" (submit)="editTask($event)">
                 <div>
                     <label>Title:</label>
-                    <input type="text" [value] ="task.title" name="editTitle" [(ngModel)]="title2" placeholder="{{task.title}}">
+                    <input type="text" name="editTitle" [(ngModel)]="newTask.title" placeholder="{{task.title}}">
                 </div>
                 <div>
                     <label>Description:</label>
-                    <input type="text" value="{{task.description}}" id="editDesc">
+                    <input type="text" placeholder="{{task.description}}" name="editDesc" [(ngModel)]="newTask.description">
                 </div>
-                <div *ngIf="task.completed">
-                    <label>Uncompleted</label>
-                    <input type="checkbox" value="true" id="editComp">
-                </div>
-                <div *ngIf="!task.completed">
+                <div>
                     <label>Complete</label>
-                    <input type="checkbox" value="false" id="editComp">
+                    <input type="checkbox" name="comp" [(ngModel)]="newTask.completed" id="editComp">
                 </div>
-                <input type="hidden" value="{{task.title}}"/>
                 <div>
                     <button type="submit">Edit</button>
                 </div>

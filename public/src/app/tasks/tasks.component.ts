@@ -14,8 +14,12 @@ alltasks:any[] = [];
 
 task:any = {};
 
-title2:string = "";
 
+newTask:any = {
+  title : "",
+  description: "",
+  completed: false
+};
 
   constructor(private _HttpService: TasksService) { 
     
@@ -45,14 +49,11 @@ title2:string = "";
 
 
   editTask(event:any):void{
-    event.preventDefault();
-    // this.title = event.target.title.value;
-    // this._HttpService.selectTask(this.title)
-    // .subscribe((data:any) => {
-    //   this.task = data;
-    // });
-    console.log(this.title2);
-    
+    console.log(this.newTask);
+    this._HttpService.editTask(this.title, this.newTask)
+    .subscribe((data:any)=>{
+      console.log(data);
+    });
   }
 
 
