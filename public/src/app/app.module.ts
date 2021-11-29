@@ -4,6 +4,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TasksComponent } from './tasks/tasks.component';
+import {FormsModule} from '@angular/forms'
 import { TasksService } from './tasks/tasks.service';
 //! Importamos el service
 
@@ -18,7 +19,8 @@ import { TasksService } from './tasks/tasks.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [
     TasksService

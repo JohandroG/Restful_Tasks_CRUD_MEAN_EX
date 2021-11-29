@@ -21,23 +21,23 @@
     
 
     <div *ngIf="task.title" class="edit">
-        <h1>Edit Task</h1>
+        <h1>Edit Task {{title2}}</h1>
         <div class="show">
-            <form class="editinfo">
+            <form class="editinfo" (submit)="editTask($event)">
                 <div>
                     <label>Title:</label>
-                    <input type="text" value="{{task.title}}" id="editTitle">
+                    <input type="text" [value] ="task.title" name="editTitle" [(ngModel)]="title2" placeholder="{{task.title}}">
                 </div>
                 <div>
                     <label>Description:</label>
                     <input type="text" value="{{task.description}}" id="editDesc">
                 </div>
                 <div *ngIf="task.completed">
-                    <label>Completed</label>
+                    <label>Uncompleted</label>
                     <input type="checkbox" value="true" id="editComp">
                 </div>
                 <div *ngIf="!task.completed">
-                    <label>Uncomplete</label>
+                    <label>Complete</label>
                     <input type="checkbox" value="false" id="editComp">
                 </div>
                 <input type="hidden" value="{{task.title}}"/>

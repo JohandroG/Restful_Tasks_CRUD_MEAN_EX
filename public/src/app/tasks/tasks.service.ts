@@ -23,5 +23,9 @@ task:Object = {};
     return this._http.get(`http://localhost:8080/tasks/${title}`)
   }
 
+  editTask(title:string, editedTask:any){
+    return this._http.put(`http://localhost:8080/tasks/${title}`,editedTask)
+  }
+
 
 }
