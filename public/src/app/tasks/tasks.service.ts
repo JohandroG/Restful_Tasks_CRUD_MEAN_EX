@@ -15,14 +15,8 @@ task:Object = {};
     this.requestTasks();
   }
 
-  requestTasks():void{
-    
-    this._http.get("http://localhost:8080/tasks")
-    .subscribe((data:any) => {
-      console.log(this.alltasks);
-      this.alltasks = data;
-      console.log(this.alltasks);
-    });
+  requestTasks(){
+    return this._http.get("http://localhost:8080/tasks")
   }
 
   selectTask(title:string){

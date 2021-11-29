@@ -15,16 +15,23 @@ alltasks:any[] = [];
 task:any = {};
 
 
+
+
   constructor(private _HttpService: TasksService) { 
     
   }
 
   ngOnInit(): void {
+    this.displayAllTasks();
   }
 
   displayAllTasks():void{
-    this.alltasks = this._HttpService.alltasks
-    console.log(this.alltasks);
+    this._HttpService.requestTasks()
+    .subscribe((data:any) => {
+      console.log(this.alltasks);
+      this.alltasks = data;
+      console.log(this.alltasks);
+    });
   }
 
   findTask(event:any):void{

@@ -1,18 +1,50 @@
-<button type="button" (click)="displayAllTasks()">
-GET ALL TASKS
-</button>
+<div class="body">
 
-<div *ngFor="let task of alltasks" class="task">
-    {{task.title}}
-    <form (submit)="findTask($event)">
-        <input type="hidden" value="{{task.title}}" id="title">
-        <button type="submit">
-            SHOW
-        </button>
-    </form>
-</div>
 
-<div *ngIf="task.title" class="show">
-    <p>Title: {{task.title}}</p>
-    <p>Description: {{task.description}}</p>
+    <div>
+        <h1>Task List</h1>
+        <div class="tasks">
+            <div *ngFor="let task of alltasks" class="task">
+                <div>
+                    <h3>{{task.title}}</h3>
+                    <p>{{task.description}}</p>
+                </div>
+                <form (submit)="findTask($event)">
+                    <input type="hidden" value="{{task.title}}" id="title">
+                    <button type="submit">
+                        SHOW
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+
+    <div *ngIf="task.title" class="edit">
+        <h1>Edit Task</h1>
+        <div class="show">
+            <form class="editinfo">
+                <div>
+                    <label>Title:</label>
+                    <input type="text" value="{{task.title}}" id="editTitle">
+                </div>
+                <div>
+                    <label>Description:</label>
+                    <input type="text" value="{{task.description}}" id="editDesc">
+                </div>
+                <div *ngIf="task.completed">
+                    <label>Completed</label>
+                    <input type="checkbox" value="true" id="editComp">
+                </div>
+                <div *ngIf="!task.completed">
+                    <label>Uncomplete</label>
+                    <input type="checkbox" value="false" id="editComp">
+                </div>
+                <input type="hidden" value="{{task.title}}"/>
+                <div>
+                    <button type="submit">Edit</button>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>

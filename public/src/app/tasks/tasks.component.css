@@ -2,17 +2,37 @@
     margin: 10px;
     padding: 20px;
     border: 2px solid black;
-    width: 30%;
+    width: 300px;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tasks{
+    margin-right: 100px;
 }
 .show{
     margin: 10px;
     padding: 20px;
     border: 2px solid black;
-    width: 30%;
+    width: 300px;
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.body{
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.edit{
+    width: 100%;
+}
+
+.editinfo>div{
+    margin: 10px 0px;
 }
