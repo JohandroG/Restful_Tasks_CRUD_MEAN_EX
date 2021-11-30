@@ -27,5 +27,12 @@ task:Object = {};
     return this._http.put(`http://localhost:8080/tasks/${title}`,editedTask)
   }
 
+  postTask(newTask:any){
+    return this._http.post(`http://localhost:8080/tasks`,newTask)
+  }
+
+  removeTask(title:string){
+    return this._http.delete(`http://localhost:8080/tasks/${title}`)
+  }
 
 }

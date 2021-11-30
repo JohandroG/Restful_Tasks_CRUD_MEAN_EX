@@ -1,3 +1,18 @@
+<h2>New task</h2>
+<form class="editinfo" (submit)="postNewTask($event)">
+    <div>
+        <label>Title:</label>
+        <input type="text" name="editTitle" [(ngModel)]="newTask2.title" placeholder="New Task">
+    </div>
+    <div>
+        <label>Description:</label>
+        <input type="text" placeholder="New description" name="editDesc" [(ngModel)]="newTask2.description">
+    </div>
+    <div>
+        <button type="submit">Create</button>
+    </div>
+</form>
+
 <div class="body">
 
 
@@ -12,12 +27,20 @@
                         <h4>Done</h4>
                     </div>
                 </div>
-                <form (submit)="findTask($event)">
-                    <input type="hidden" value="{{task.title}}" id="title">
-                    <button type="submit">
-                        SHOW
-                    </button>
-                </form>
+                <div>
+                    <form (submit)="findTask($event)">
+                        <input type="hidden" value="{{task.title}}" id="title">
+                        <button type="submit">
+                            EDIT
+                        </button>
+                    </form>
+                    <form (submit)="deleteTask($event)">
+                        <input type="hidden" value="{{task.title}}" id="title">
+                        <button type="submit">
+                            REMOVE
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>

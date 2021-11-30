@@ -21,6 +21,12 @@ newTask:any = {
   completed: false
 };
 
+newTask2:any = {
+  title : "",
+  description: "",
+  completed: false
+};
+
   constructor(private _HttpService: TasksService) { 
     
   }
@@ -49,13 +55,29 @@ newTask:any = {
 
 
   editTask(event:any):void{
-    console.log(this.newTask);
+    location.reload();
     this._HttpService.editTask(this.title, this.newTask)
     .subscribe((data:any)=>{
       console.log(data);
     });
   }
 
+  postNewTask(event:any):void{
+    location.reload();
+    this._HttpService.postTask(this.newTask2)
+    .subscribe((data:any)=>{
+      console.log(data);
+    });
+  }
 
+  deleteTask(event:any):void{
+    event.preventDefault();
+    this.title = event.target.title.value;
+    this._HttpService.removeTask(this.title)
+    .subscribe((data:any) => {
+      this.task = data;
+    });
+    location.reload();
+  }
 
 }
