@@ -53,6 +53,8 @@ newTask2:any = {
 
 
   editTask(event:any):void{
+    console.log(this.newTask);
+    
     location.reload();
     this._HttpService.editTask(this.title, this.newTask)
     .subscribe((data:any)=>{
