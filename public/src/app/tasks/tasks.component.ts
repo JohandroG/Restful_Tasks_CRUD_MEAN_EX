@@ -27,9 +27,7 @@ newTask2:any = {
   completed: false
 };
 
-  constructor(private _HttpService: TasksService) { 
-    
-  }
+  constructor(private _HttpService: TasksService) {}
 
   ngOnInit(): void {
     this.displayAllTasks();
